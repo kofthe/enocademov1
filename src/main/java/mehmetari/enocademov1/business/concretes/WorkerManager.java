@@ -11,6 +11,7 @@ import mehmetari.enocademov1.entity.Company;
 import mehmetari.enocademov1.entity.Worker;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,7 +31,17 @@ public class WorkerManager implements WorkerService {
     @Override
     public List<WorkerListResponse> getAll() {
         List<Worker> workerList = workerRepository.findAll();
-        return workerList.stream().map(WorkerModel :: toWorkerListResponse).collect(Collectors.toList());
+        List<WorkerListResponse> workerListResponses = new ArrayList<>();
+        for (Worker worker : workerList) {
+            WorkerListResponse workerListResponse = new WorkerListResponse();
+            workerListResponse.setFirstName(worker.getFirstName());
+            workerListResponse.setLastName(worker.getLastName());
+            workerListResponse.setCompanyId(worker.getCompany().getId());
+            workerListResponse.setId(worker.getId());
+            workerListResponses.add(workerListResponse);
+        }
+
+        return workerListResponses;
     }
 
 

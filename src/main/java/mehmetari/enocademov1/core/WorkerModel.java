@@ -15,7 +15,7 @@ public class WorkerModel {
         workerResponse.setId(worker.getId());
         workerResponse.setFirstName(worker.getFirstName());
         workerResponse.setLastName(worker.getLastName());
-        workerResponse.setCompanyById(worker.getCompany().getId());
+        workerResponse.setCompanyId(worker.getCompany().getId());
         return workerResponse;
     }
 

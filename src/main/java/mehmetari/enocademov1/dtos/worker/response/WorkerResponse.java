@@ -11,7 +11,6 @@ public class WorkerResponse {
     private long id;
     private String firstName;
     private String lastName;
-    private List<CompanyResponse> companyId;
-    private Long companyById;
-
+    // private List<CompanyResponse> companyId;
+    private Long companyId;
 }
